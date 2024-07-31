@@ -1,15 +1,14 @@
 extends Node2D
-
-var ghost = preload("res://scenes/ghost.tscn")
-var mirror_tower = preload("res://scenes/mirror_tower.tscn")
+var ghost = load("res://scenes/ghost.tscn")
+var mirror_tower = load("res://scenes/mirror_tower.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var g = ghost.instantiate()
-	var m = mirror_tower.instantiate()
+	ghost = ghost.instantiate()
+	mirror_tower = mirror_tower.instantiate()
 	
-	add_child(g)
-	add_child(m)
+	add_child(mirror_tower)
+	add_child(ghost)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

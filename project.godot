@@ -22,3 +22,11 @@ aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
+
+[layer_names]
+
+2d_render/layer_1="Game Level"
+2d_render/layer_2="Dev Level"
+2d_physics/layer_1="Mirror Tower"
+2d_physics/layer_2="Projectile"
+2d_physics/layer_3="Enemy"
