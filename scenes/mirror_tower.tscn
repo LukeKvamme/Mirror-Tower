@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgra60hqg51l6"]
+
+[ext_resource type="Texture2D" uid="uid://dnh004erc3883" path="res://assets/Mirror_Tower.png" id="1_hv8ng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8gre"]
+size = Vector2(38, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvsji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hv8ng")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qvy4"]
+radius = 127.016
+
+[node name="Mirror Tower" type="StaticBody2D"]
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_a8gre")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lvsji")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Attack Range" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2qvy4")
