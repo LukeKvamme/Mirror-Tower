@@ -17,7 +17,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.collision_mask == 3:
 		_fire(body)
-	
+
 
 func _fire(target):
 	var projectile_instance = projectile.instantiate()
@@ -26,6 +26,6 @@ func _fire(target):
 	projectile_instance.face(target) # makes the projectile aim at the target body
 	
 	var angle = target.rotation # cannot fully explain how this works but it will angle it toward the target
-	projectile_instance.apply_central_impulse(Vector2(-cos(angle), -sin(angle)) * impulse)
+	projectile_instance.apply_central_impulse(-Vector2(cos(angle), sin(angle)) * impulse)
 	
 	get_tree().get_root().call_deferred("add_child", projectile_instance)

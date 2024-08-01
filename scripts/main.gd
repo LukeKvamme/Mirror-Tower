@@ -1,4 +1,5 @@
 extends Node2D
+
 var ghost = load("res://scenes/ghost.tscn")
 var mirror_tower = load("res://scenes/mirror_tower.tscn")
 
@@ -6,6 +7,8 @@ var mirror_tower = load("res://scenes/mirror_tower.tscn")
 func _ready():
 	ghost = ghost.instantiate()
 	mirror_tower = mirror_tower.instantiate()
+	mirror_tower.position = Vector2i(1280/2, 720/2)
+	ghost.position = Vector2i(100,10)
 	
 	add_child(mirror_tower)
 	add_child(ghost)

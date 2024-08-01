@@ -10,5 +10,7 @@ func _ready():
 func _process(delta):
 	pass
 
+
 func face(body):
 	look_at(body.position)
+	
