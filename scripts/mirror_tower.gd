@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var health: int = 10
-var projectile_speed: int = 1000
+var projectile_speed: int = 5000
 var projectile = preload("res://scenes/projectile.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -25,7 +25,15 @@ func _fire(target):
 	projectile_instance.position = get_global_position() # spawns projectile on the tower
 	projectile_instance.face(target) # makes the projectile aim at the target body
 	
-	var angle = target.rotation # cannot fully explain how this works but it will angle it toward the target
-	projectile_instance.apply_central_impulse(-Vector2(cos(angle), sin(angle)) * impulse)
+	var angle = self.get_angle_to(target.global_position)
+	projectile_instance.apply_central_impulse(Vector2(cos(angle), sin(angle)) * impulse)
+	
+	#var angle = target.rotation # cannot fully explain how this works but it will angle it toward the target
+	#projectile_instance.apply_central_impulse(-Vector2(cos(angle), sin(angle)) * impulse)
 	
 	get_tree().get_root().call_deferred("add_child", projectile_instance)
+
+
+func _on_area_2d_2_hitbox_body_entered(body):
+	if body.collision_mask == 3:
+		print("HP -1")

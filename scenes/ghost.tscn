@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bggo4g3exk1rc" path="res://assets/ShadowGhostBigger_f4.png" id="3_r5hi1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rtwms"]
-radius = 6.0
-height = 16.0
+radius = 18.0
+height = 56.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nhlan"]
 animations = [{
@@ -27,20 +27,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xxjad"]
-radius = 8.0
-height = 22.0
+radius = 18.0
+height = 58.0
 
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_1mg2v")
 
-[node name="Ghost Hitbox" type="CollisionShape2D" parent="."]
+[node name="CollisionIDKWHATTHISISFOR" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rtwms")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
-scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_nhlan")
 frame_progress = 0.13754
 
@@ -48,7 +47,7 @@ frame_progress = 0.13754
 collision_layer = 4
 collision_mask = 3
 
-[node name="AttackRange" type="CollisionShape2D" parent="Area2D"]
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_xxjad")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
